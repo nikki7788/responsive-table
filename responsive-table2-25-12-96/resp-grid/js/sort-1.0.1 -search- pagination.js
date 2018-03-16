@@ -193,12 +193,12 @@ $(document).ready(function () {
                     myHtml += "<td>" + item.fieldName + "</td>";
                     myHtml += '<td ><div class="mr-1 row"><a href="#" class="myedit btn btn-success m-1" >ویرایش<i style="font-size:16px;color:rgb(182, 255, 0)" class="fa  fa-spin">&#xf044;</i></a><a href="#" class="myDelete btn btn-danger m-1" > حذف <i class="fa fa-trash fa-spinner fa-spin" style="color:rgb(255, 216, 0);font-size:16px"></i></a></div></td>';
                     myHtml += "</tr>";
-                    mydata.push(item.studentID);
+                    //      mydata.push(item.studentID);
                 });
             }
             $("table tbody").html(myHtml);
         } else {
-            mydata = [];
+            // mydata = [];
             getLocalStorage();
             //جدول را میسازد
             $(stdTable).each(function (key, item) {
@@ -211,7 +211,7 @@ $(document).ready(function () {
                 myHtml += "<td>" + item.fieldName + "</td>";
                 myHtml += '<td ><div class="mr-1 row"><a href="#" class="myedit btn btn-success m-1" >ویرایش<i style="font-size:16px;color:rgb(182, 255, 0)" class="fa  fa-spin">&#xf044;</i></a><a href="#" class="myDelete btn btn-danger m-1" > حذف <i class="fa fa-trash fa-spinner fa-spin" style="color:rgb(255, 216, 0);font-size:16px"></i></a></div></td>';
                 myHtml += "</tr>";
-                mydata.push(item.studentID);
+                //   mydata.push(item.studentID);
             });
             $("table tbody").html(myHtml);
             tr = $("#myTable tbody tr");
@@ -336,49 +336,46 @@ $(document).ready(function () {
         }).then((result) => {
             if (result.value) {
                 debugger;
-                //یک ارایه خالی برای ذخیره دانشجویانی که انتخاب نشده اند 
-                var newStdTable = [];
-                for (var i = 0; i < stdTable.length; i++) {
-                    //دانشجویانی که انتخاب نشده اند یکی یکی
-                    //به متغیر اضافه میشوند
-                    if (!allCheckedBox.eq(i).is(":checked")) {
-                        if (stdTable[i].studentID = mydata[i]) {
-                            newStdTable.push(stdTable[i]);
+                for (var i = 0; i < allCheckedBox.length; i++) {
+                    if (allCheckedBox.eq(i).is(":checked")) {
+                        for (var j = 0; j < stdTable.length; j++) {
+                            if (stdTable[j].studentID == clickID(allCheckedBox.eq(i))) {
+                                stdTable.splice((j), 1);
+                                break;
+                            }
+
                         }
                     }
 
-                    //if (allCheckedBox.eq(i).is(":checked")) {
-                    //    if (stdTable[i].studentID == data[i]) {
-                    //        //  به حای عضوی که تیک خورده و باید حذف شود از لیست 
-                    //        // استرینگ خالی میگذاریم و در 
-                    //        // حلقه بعد ازلیست
-                    //        //حذفشان میکنیم
-                    //        stdTable.splice(i, 1, "");
-                    //    }
-                    //}
-
                 }
-                stdTable = newStdTable;
-                //حذف گزینه های انتخاب شده در حلقه قبلی
-                //for (var i = 0; i < studentList.length; i++) {
+                if (searchHtml) {
+                    k = 0;
+                    for (var i = 0; i < allCheckedBox.length; i++) {
+                        if (allCheckedBox.eq(i).is(":checked")) {
+                            for (var j = 0; j < searchHtml.length; j++) {
 
-                //    if (studentList[i] == "") {
-                //        stdTable.splice(i, 1);
-                //    }
-                //};
-                saveLocalStorage();
-                loadData();
-                swal(
-                    '!حذف شد',
-                    '!حذف با موفقیت انجام شد.',
-                    'success'
-                )
+                                if (searchHtml[j].studentID == clickID(allCheckedBox.eq(i))) {
+                                    searchHtml.splice((j), 1);
+                                    break;
+                                }
+
+                            }
+                        }
+
+                    }
+                }
             }
-        }) //end swal
-        //}
-        //}
-    };
+            saveLocalStorage();
+            loadData();
+            rePage();
+            swal(
+                '!حذف شد',
+                '!حذف با موفقیت انجام شد.',
+                'success'
+            )
 
+        }) //end swal
+    };
     //رخداد کلیک برای دکمه حذف در جدول
     function myDelete(cld) {
         for (var i = 0; i < $(".myDelete").length; i++) {
