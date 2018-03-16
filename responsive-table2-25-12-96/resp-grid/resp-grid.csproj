@@ -1,0 +1,391 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.7.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.7.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5F0B2B4-054C-4B2D-A6C0-AEB8E110A687}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>resp_grid</RootNamespace>
+    <AssemblyName>resp-grid</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="html\table - pagination - Copy.html" />
+    <Content Include="html\table - pagination.html" />
+    <Content Include="js\sort-1.0.1 -search- pagination.js" />
+    <Content Include="js\sort-1.0.1 - pagination.js" />
+    <Content Include="node_modules\animate.css\.editorconfig" />
+    <Content Include="node_modules\animate.css\.prettierignore" />
+    <Content Include="node_modules\animate.css\.travis.yml" />
+    <Content Include="node_modules\animate.css\animate-config.json" />
+    <Content Include="node_modules\animate.css\bower.json" />
+    <Content Include="node_modules\animate.css\LICENSE" />
+    <Content Include="node_modules\animate.css\package.json" />
+    <Content Include="node_modules\animate.css\README.md" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\AUTHORS.txt" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\external\jquery\jquery.js" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\images\ui-icons_444444_256x240.png" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\images\ui-icons_555555_256x240.png" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\images\ui-icons_777620_256x240.png" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\images\ui-icons_777777_256x240.png" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\index.html" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\jquery-ui.css" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\jquery-ui.js" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\jquery-ui.min.css" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\jquery-ui.min.js" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\jquery-ui.structure.css" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\jquery-ui.structure.min.css" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\jquery-ui.theme.css" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\jquery-ui.theme.min.css" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\LICENSE.txt" />
+    <Content Include="node_modules\sweetalert2\LICENSE" />
+    <Content Include="node_modules\sweetalert2\package.json" />
+    <Content Include="node_modules\sweetalert2\README.md" />
+    <Content Include="node_modules\sweetalert2\src\animations.scss" />
+    <Content Include="node_modules\sweetalert2\src\mixins.scss" />
+    <Content Include="node_modules\sweetalert2\src\sweetalert2.scss" />
+    <Content Include="node_modules\sweetalert2\src\toasts.scss" />
+    <Content Include="node_modules\sweetalert2\src\variables.scss" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="font-web\BMahsa\BMahsa.eot" />
+    <Content Include="font-web\BMahsa\BMahsa.ttf" />
+    <Content Include="font-web\BMahsa\BMahsa.woff" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="font-web\BYas\BYas.eot" />
+    <Content Include="font-web\BYas\BYas.ttf" />
+    <Content Include="font-web\BYas\BYas.woff" />
+    <Content Include="node_modules\jquery-ui-1.12.1.custom\package.json" />
+    <Content Include="node_modules\Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging\paging-custom.css">
+      <DependentUpon>paging-custom.scss</DependentUpon>
+    </Content>
+    <Content Include="node_modules\Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging\paging-custom.min.css">
+      <DependentUpon>paging-custom.css</DependentUpon>
+    </Content>
+    <Content Include="node_modules\Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging\paging-custom.scss" />
+    <None Include="packages.config" />
+    <Content Include="node_modules\Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging\.gitattributes" />
+    <Content Include="node_modules\Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging\.gitignore" />
+    <Content Include="node_modules\Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging\paging.css" />
+    <Content Include="node_modules\Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging\scripts\jquery.table.hpaging.js" />
+    <Content Include="node_modules\Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging\scripts\jquery.table.hpaging.min.js" />
+    <Content Include="sass\table.css">
+      <DependentUpon>table.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\table.min.css">
+      <DependentUpon>table.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\normalize-ریست کردن صفحه.css" />
+    <Content Include="css\table.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="html\resp-table.html" />
+    <Content Include="html\table.html" />
+    <Content Include="js\res-grid.js" />
+    <Content Include="js\sort-1.0.1.js" />
+    <Content Include="node_modules\animate.css\animate.css" />
+    <Content Include="node_modules\animate.css\animate.min.css" />
+    <Content Include="node_modules\animate.css\gulpfile.js" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\bounce.css" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\flash.css" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\headShake.css" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\jello.css" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\pulse.css" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\rubberBand.css" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\shake.css" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\swing.css" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\tada.css" />
+    <Content Include="node_modules\animate.css\source\attention_seekers\wobble.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_entrances\bounceIn.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_entrances\bounceInDown.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_entrances\bounceInLeft.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_entrances\bounceInRight.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_entrances\bounceInUp.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_exits\bounceOut.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_exits\bounceOutDown.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_exits\bounceOutLeft.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_exits\bounceOutRight.css" />
+    <Content Include="node_modules\animate.css\source\bouncing_exits\bounceOutUp.css" />
+    <Content Include="node_modules\animate.css\source\fading_entrances\fadeIn.css" />
+    <Content Include="node_modules\animate.css\source\fading_entrances\fadeInDown.css" />
+    <Content Include="node_modules\animate.css\source\fading_entrances\fadeInDownBig.css" />
+    <Content Include="node_modules\animate.css\source\fading_entrances\fadeInLeft.css" />
+    <Content Include="node_modules\animate.css\source\fading_entrances\fadeInLeftBig.css" />
+    <Content Include="node_modules\animate.css\source\fading_entrances\fadeInRight.css" />
+    <Content Include="node_modules\animate.css\source\fading_entrances\fadeInRightBig.css" />
+    <Content Include="node_modules\animate.css\source\fading_entrances\fadeInUp.css" />
+    <Content Include="node_modules\animate.css\source\fading_entrances\fadeInUpBig.css" />
+    <Content Include="node_modules\animate.css\source\fading_exits\fadeOut.css" />
+    <Content Include="node_modules\animate.css\source\fading_exits\fadeOutDown.css" />
+    <Content Include="node_modules\animate.css\source\fading_exits\fadeOutDownBig.css" />
+    <Content Include="node_modules\animate.css\source\fading_exits\fadeOutLeft.css" />
+    <Content Include="node_modules\animate.css\source\fading_exits\fadeOutLeftBig.css" />
+    <Content Include="node_modules\animate.css\source\fading_exits\fadeOutRight.css" />
+    <Content Include="node_modules\animate.css\source\fading_exits\fadeOutRightBig.css" />
+    <Content Include="node_modules\animate.css\source\fading_exits\fadeOutUp.css" />
+    <Content Include="node_modules\animate.css\source\fading_exits\fadeOutUpBig.css" />
+    <Content Include="node_modules\animate.css\source\flippers\flip.css" />
+    <Content Include="node_modules\animate.css\source\flippers\flipInX.css" />
+    <Content Include="node_modules\animate.css\source\flippers\flipInY.css" />
+    <Content Include="node_modules\animate.css\source\flippers\flipOutX.css" />
+    <Content Include="node_modules\animate.css\source\flippers\flipOutY.css" />
+    <Content Include="node_modules\animate.css\source\lightspeed\lightSpeedIn.css" />
+    <Content Include="node_modules\animate.css\source\lightspeed\lightSpeedOut.css" />
+    <Content Include="node_modules\animate.css\source\rotating_entrances\rotateIn.css" />
+    <Content Include="node_modules\animate.css\source\rotating_entrances\rotateInDownLeft.css" />
+    <Content Include="node_modules\animate.css\source\rotating_entrances\rotateInDownRight.css" />
+    <Content Include="node_modules\animate.css\source\rotating_entrances\rotateInUpLeft.css" />
+    <Content Include="node_modules\animate.css\source\rotating_entrances\rotateInUpRight.css" />
+    <Content Include="node_modules\animate.css\source\rotating_exits\rotateOut.css" />
+    <Content Include="node_modules\animate.css\source\rotating_exits\rotateOutDownLeft.css" />
+    <Content Include="node_modules\animate.css\source\rotating_exits\rotateOutDownRight.css" />
+    <Content Include="node_modules\animate.css\source\rotating_exits\rotateOutUpLeft.css" />
+    <Content Include="node_modules\animate.css\source\rotating_exits\rotateOutUpRight.css" />
+    <Content Include="node_modules\animate.css\source\sliding_entrances\slideInDown.css" />
+    <Content Include="node_modules\animate.css\source\sliding_entrances\slideInLeft.css" />
+    <Content Include="node_modules\animate.css\source\sliding_entrances\slideInRight.css" />
+    <Content Include="node_modules\animate.css\source\sliding_entrances\slideInUp.css" />
+    <Content Include="node_modules\animate.css\source\sliding_exits\slideOutDown.css" />
+    <Content Include="node_modules\animate.css\source\sliding_exits\slideOutLeft.css" />
+    <Content Include="node_modules\animate.css\source\sliding_exits\slideOutRight.css" />
+    <Content Include="node_modules\animate.css\source\sliding_exits\slideOutUp.css" />
+    <Content Include="node_modules\animate.css\source\specials\hinge.css" />
+    <Content Include="node_modules\animate.css\source\specials\jackInTheBox.css" />
+    <Content Include="node_modules\animate.css\source\specials\rollIn.css" />
+    <Content Include="node_modules\animate.css\source\specials\rollOut.css" />
+    <Content Include="node_modules\animate.css\source\zooming_entrances\zoomIn.css" />
+    <Content Include="node_modules\animate.css\source\zooming_entrances\zoomInDown.css" />
+    <Content Include="node_modules\animate.css\source\zooming_entrances\zoomInLeft.css" />
+    <Content Include="node_modules\animate.css\source\zooming_entrances\zoomInRight.css" />
+    <Content Include="node_modules\animate.css\source\zooming_entrances\zoomInUp.css" />
+    <Content Include="node_modules\animate.css\source\zooming_exits\zoomOut.css" />
+    <Content Include="node_modules\animate.css\source\zooming_exits\zoomOutDown.css" />
+    <Content Include="node_modules\animate.css\source\zooming_exits\zoomOutLeft.css" />
+    <Content Include="node_modules\animate.css\source\zooming_exits\zoomOutRight.css" />
+    <Content Include="node_modules\animate.css\source\zooming_exits\zoomOutUp.css" />
+    <Content Include="node_modules\animate.css\source\_base.css" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\.gitignore" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\dist\jquery.tableMobilize.js" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\dist\jquery.tableMobilize.min.js" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\dist\theme-default.css" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\dist\theme-default.min.css" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\gulpfile.js" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\src\jquery.tableMobilize.js" />
+    <Content Include="node_modules\sweetalert2\dist\sweetalert2.all.js" />
+    <Content Include="node_modules\sweetalert2\dist\sweetalert2.all.min.js" />
+    <Content Include="node_modules\sweetalert2\dist\sweetalert2.css" />
+    <Content Include="node_modules\sweetalert2\dist\sweetalert2.js" />
+    <Content Include="node_modules\sweetalert2\dist\sweetalert2.min.css" />
+    <Content Include="node_modules\sweetalert2\dist\sweetalert2.min.js" />
+    <Content Include="node_modules\sweetalert2\src\sweetalert2.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\classes.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\defaultInputValidators.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\DismissReason.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\dom\animationEndEvent.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\dom\domUtils.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\dom\getters.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\dom\index.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\dom\init.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\dom\measureScrollbar.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\dom\parseHtmlToContainer.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\iosFix.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\isNodeEnv.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\params.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\scrollbarFix.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\setParameters.js" />
+    <Content Include="node_modules\sweetalert2\src\utils\utils.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\.jshintrc" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\dist\theme-default.min.css.map" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\LICENSE" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\package.json" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\readme.md" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\src\theme-default.scss" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\src\_mobile_view.scss" />
+    <Content Include="node_modules\Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize\src\_variables.scss" />
+    <Content Include="sass\table.scss" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="node_modules\sweetalert2\sweetalert2.d.ts" />
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>32676</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:32676/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.11.375\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.11.375\build\BuildWebCompiler.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.7.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.7.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <Import Project="..\packages\BuildWebCompiler.1.11.375\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.375\build\BuildWebCompiler.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

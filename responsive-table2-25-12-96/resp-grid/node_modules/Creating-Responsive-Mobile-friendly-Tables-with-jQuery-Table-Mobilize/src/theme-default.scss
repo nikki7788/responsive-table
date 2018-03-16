@@ -1,0 +1,58 @@
+/*
+*
+*	TEMPLATE DEFAULT
+*
+*/
+
+@import "variables";
+
+table.tableMobilize tbody,
+table.tableMobilize tr,
+table.tableMobilize th,
+table.tableMobilize td {
+	border: 0;
+	padding: 0;
+	white-space: normal;
+	font-size: 1em;
+}
+
+table.tableMobilize th,
+table.tableMobilize td{
+	padding: 8px;
+	line-height: 1.42857143;
+	vertical-align: top;
+	border-top: 1px solid $color-border;
+	text-align: left;
+}
+ 
+table.tableMobilize.tableMobilized{
+	display: block;
+	@import "mobile_view";
+}
+table.tableMobilized.table-striped>tbody>tr:nth-of-type(odd) td{
+	background-color: $color-striped;
+}
+
+@media (max-width: 767px) {
+	table.tableMobilize{
+		display: block;
+		@import "mobile_view";
+	}
+	table.tableMobilize.table-striped>tbody>tr:nth-of-type(odd) td{
+		background-color: $color-striped;
+	}	
+}
+
+@media (min-width: 768px) {
+	table.tableMobilize > thead th{
+		vertical-align: bottom;
+		border-bottom: 2px solid $color-border;
+		border-top: 0;
+		padding: 8px;
+		line-height: 1.42857143;
+	}
+
+	table.tableMobilize.table-striped>tbody>tr:nth-of-type(odd) {
+		background-color: $color-striped;
+	}
+}

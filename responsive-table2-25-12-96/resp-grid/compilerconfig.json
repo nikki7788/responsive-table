@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "sass/table.css",
+    "inputFile": "sass/table.scss"
+  },
+  {
+    "outputFile": "node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/paging-custom.css",
+    "inputFile": "node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/paging-custom.scss"
+  }
+]

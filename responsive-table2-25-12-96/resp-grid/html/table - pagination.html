@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Table</title>
+    <link href="../css/normalize-ریست کردن صفحه.css" rel="stylesheet" />
+    <link href="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-3.3.1.js"></script>
+    <script src="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <link href="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+    <link href="../sass/table.css" rel="stylesheet" />
+
+    <link href="../sass/table.css" rel="stylesheet" />
+    <link href="../node_modules/animate.css/animate.css" rel="stylesheet" />
+    <link href="../node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet" />
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+
+
+    <script src="../node_modules/Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize/dist/jquery.tableMobilize.js"></script>
+    <link href="../node_modules/Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize/dist/theme-default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../css/table.css" rel="stylesheet" />
+    <link href="../node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/paging.css" rel="stylesheet" />
+    <script src="../node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/scripts/jquery.table.hpaging.min.js"></script>
+    <script src="../node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/scripts/jquery.table.hpaging.js"></script>
+    <link href="../node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/paging-custom.css" rel="stylesheet" />
+  <!--  <script src="../js/sort-1.0.1 - pagination.js"></script>-->
+    <script src="../js/sort-1.0.1 -search- pagination.js"></script>
+
+
+</head>
+
+<body>
+    <div class="main container-fluid">
+        <div class="head ">
+
+            <div class="header bg-secondary text-light jumbotron">
+                <h2 class="text-center container">دانشجویان</h2>
+            </div>
+            <div class="bt">
+                <button type="button" class="rounded-circle btn  btn-success  ml-1 p-md-3" data-toggle="modal" data-target="#myModal">
+                    <i class="fa fa-user-plus" style="font-size:16px"></i>
+                    دانشجوی جدید
+                </button>
+                <div class="search-block d-inline-block">
+                    <input class="rounded border-primary" type="search" id="mySearch" />
+                    <button class="rounded-circle btn-outline-success" style="font-size:12px">
+                        جست و جو
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+
+            </div>
+
+
+
+            <div class="btn-group rounded" style="width:100%">
+                <div class="btn btn-secondary btn-group  selectAll" type="button">
+                    <input type="checkbox" id="selectAll" class="ml-1" disabled />
+                    <lable for="selectAll">انتخاب همه</lable>
+                </div>
+                <div class="btn-group">
+                    <button type="button" id="groupdelete" class="btn btn-danger  ">حذف</button>
+                </div>
+            </div>
+        </div>
+
+        <!--*************------------------------------------------ Tabel--------------------------------------------********* -->
+        <!-----------pagination----------->
+        <dvi class="container">
+            <div class="row container">
+                <div class="3">
+                    <input id="pglmt" placeholder="Page Limit" title="Page Limit" value="3" class="form-control">
+                </div>
+                <div class="2">
+                    <button id="btnApply" class="btn btn-danger">Apply</button>
+                </div>
+            </div>
+        </dvi>
+        <!-------------------->
+        <div class="table">
+            <table id="myTable" class="table table-bordered  table-hover tableMobilize  table-striped">
+                <thead class="bg-info text-light text-center">
+                    <tr>
+                        <th>انتخاب </th>
+                        <th>
+                            شماره دانشجو
+                            <div class="mr-1 mr-sm-1 mr-md-2 mr-lg-3 mr-lg-4 mr-xl-5 text-nowrap ">
+                                <a> <i class=" fa fa-chevron-circle-down" style="font-size:18px"></i></a>
+                                <a class=""> <i class="fa fa-chevron-circle-up" style="font-size:18px"></i></a>
+                            </div>
+                        </th>
+                        <th>
+                            نام دانشحو
+                            <div class="mr-1 mr-sm-1 mr-md-2 mr-lg-3 mr-lg-4 mr-xl-5 text-nowrap ">
+                                <a> <i class=" fa fa-chevron-circle-down" style="font-size:18px"></i></a>
+                                <a class=""> <i class="fa fa-chevron-circle-up" style="font-size:18px"></i></a>
+                            </div>
+                        </th>
+                        <th>
+                            سال ورود
+                            <i class="fa fa-sort-asc"></i>
+                        </th>
+                        <th>کد رشته</th>
+                        <th>نام رشته</th>
+                        <th>ویرایش/حذف</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center"></tbody>
+            </table>
+        </div>
+
+        <!-------------------------------------------The modal---------------------------------------------->
+        <div class="modal fade animated zoomInUp" id="myModal">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel"> ورود اطلاعات</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="studentID">شماره دانشجویی</label>
+                                <input type="text" class="form-control" id="studentID" placeholder="شماره دانشجویی" disabled="disabled" />
+                            </div>
+                            <div class="form-group">
+                                <label for="studentName">نام دانشجو</label>
+                                <input type="text" class="form-control" id="studentName" placeholder="نام دانشجو" autofocus />
+                            </div>
+                            <div class="form-group">
+                                <label for="startYear">سال ورود</label>
+                                <input type="text" class="form-control" id="startYear" placeholder="سال ورود-برای نمونه 89" />
+                            </div>
+                            <div class="form-group">
+                                <label for="fieldID">کد رشته</label>
+                                <input type="text" class="form-control" id="fieldID" placeholder="کد رشته" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer bg-light">
+                        <!-- میشود rem یعنی مارجین لفت  ۰.۲۵  ml-1  -->
+                        <button type="button" class="btn btn-success ml-1" id="btnAdd">اضافه کن</button>
+                        <button type="button" class="btn btn-success .hidden" id="btnEdit">ویرایش</button>
+                        <button type="button" class="btn btn-info" id="btnclose" data-dismiss="modal">خروج</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>  <!--End main-->
+
+</body>
+</html>
