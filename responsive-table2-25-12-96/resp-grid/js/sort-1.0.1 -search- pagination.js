@@ -45,18 +45,7 @@ $(document).ready(function () {
        
     });
 
-    //var rtlChar = /[\u0590-\u083F]|[\u08A0-\u08FF]|[\uFB1D-\uFDFF]|[\uFE70-\uFEFF]/mg;
-    //$(document).ready(function () {
-    //    $('#mySearch').keyup(function () {
-    //        var isRTL = this.value.match(rtlChar);
-    //        if (isRTL !== null) {
-    //            this.style.direction = 'rtl';
-    //        }
-    //        else {
-    //            this.style.direction = 'ltr';
-    //        }
-    //    });
-    //});
+
 
     //search
     $("#mySearch").on("keyup", function () {
