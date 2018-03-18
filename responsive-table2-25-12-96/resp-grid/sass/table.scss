@@ -1,17 +1,64 @@
-﻿$display:none;
-.hidden{
-    display:none;
+﻿
+$display: none;
 
+@mixin direction($dir) {
+    direction: $dir;
 }
-/*th:nth-of-type(2) a:first-of-type {
-    background-color:red;
-}*/
+
+@mixin removeGlueBlue {
+    outline: none;
+    box-shadow: none !important;
+}
+
+@mixin boxShadowInput($color) {
+    border-bottom: solid 1px $color !important;
+}
+
+@mixin borderButtomEfect($width) {
+    width: $width;
+}
+
+.hidden {
+    display: none;
+}
 
 @font-face {
     font-family: 'BYas';
     src: url('../font-web/BYas/BYas.eot');
     src: local('☺'), url('../font-web/BYas/BYas.woff') format('woff'), url('../font-web/BYas/BYas.ttf') format('truetype');
 }
-*{
-    font-family:BYas;
+
+* {
+    font-family: BYas;
+}
+
+#mySearch, #pglmt {
+    @include removeGlueBlue;
+    @include boxShadowInput(#00ffff);
+}
+
+#mySearch {
+    //@include direction(ltr);
+    text-align: left;
+    //  width:15px;
+}
+
+.myInput-focus-effect {
+    @include borderButtomEfect(50px);
+}
+
+.main {
+    @include direction(rtl);
+}
+
+.bt {
+    padding: 1rem;
+}
+
+.header {
+    padding: 2rem;
+}
+
+.btnSearch:focus {
+    @include removeGlueBlue;
 }
