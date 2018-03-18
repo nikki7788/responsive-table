@@ -1,35 +1,29 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="fa">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Table</title>
     <link href="../css/normalize-ریست کردن صفحه.css" rel="stylesheet" />
     <link href="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
-    <link href="../Content/bootstrap.css" rel="stylesheet" />
-
-    <script src="../Scripts/jquery-3.3.1.js"></script>
-    <script src="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-    <script src="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <link href="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
-    <script src="../Scripts/bootstrap.js"></script>
-    <link href="../sass/table.css" rel="stylesheet" />
-
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../sass/table.css" rel="stylesheet" />
     <link href="../node_modules/animate.css/animate.css" rel="stylesheet" />
     <link href="../node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet" />
-    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-
-
-    <script src="../node_modules/Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize/dist/jquery.tableMobilize.js"></script>
     <link href="../node_modules/Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize/dist/theme-default.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="../css/table.css" rel="stylesheet" />
+    <link href="../node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/paging-custom.css" rel="stylesheet" />
     <link href="../node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/paging.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-3.3.1.js"></script>
+    <script src="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="../node_modules/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+    <script src="../node_modules/Creating-Responsive-Mobile-friendly-Tables-with-jQuery-Table-Mobilize/dist/jquery.tableMobilize.js"></script>
     <script src="../node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/scripts/jquery.table.hpaging.min.js"></script>
     <script src="../node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/scripts/jquery.table.hpaging.js"></script>
-    <link href="../node_modules/Tiny-jQuery-Pagination-Widget-For-HTML-Table-table-hpaging/paging-custom.css" rel="stylesheet" />
-  <!--  <script src="../js/sort-1.0.1 - pagination.js"></script>-->
+    <!--  <script src="../js/sort-1.0.1 - pagination.js"></script>-->
     <script src="../js/sort-1.0.1 -search- pagination.js"></script>
 
 
@@ -39,50 +33,58 @@
     <div class="main container-fluid">
         <div class="head ">
 
-            <div class="header bg-secondary text-light jumbotron">
+            <div class="header bg-secondary text-light">
                 <h2 class="text-center container">دانشجویان</h2>
             </div>
+            <!--------------------------------- search + create new student------------------------------------>
             <div class="bt">
-                <button type="button" class="rounded-circle btn  btn-success  ml-1 p-md-3" data-toggle="modal" data-target="#myModal">
-                    <i class="fa fa-user-plus" style="font-size:16px"></i>
-                    دانشجوی جدید
-                </button>
-                <div class="search-block d-inline-block">
-                    <input class="rounded border-primary" type="search" id="mySearch" />
-                    <button class="rounded-circle btn-outline-success" style="font-size:12px">
-                        جست و جو
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-
-            </div>
-
-
-
-            <div class="btn-group rounded" style="width:100%">
-                <div class="btn btn-secondary btn-group  selectAll" type="button">
-                    <input type="checkbox" id="selectAll" class="ml-1" disabled />
-                    <lable for="selectAll">انتخاب همه</lable>
-                </div>
-                <div class="btn-group">
-                    <button type="button" id="groupdelete" class="btn btn-danger  ">حذف</button>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="rounded-circle btn  btn-success  ml-1" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-user-plus" style="font-size:16px"></i>
+                            دانشجوی جدید
+                        </button>
+                    </div>
+                    <div class="col text-left">
+                        <input class="border-0 hidden pl-1 pr-1" type="text" id="mySearch" placeholder="جست و جو..."/>
+                        <button class="rounded-circle btn-outline-success btnSearch" style="font-size:12px">
+                            <i class="fa fa-search "></i>
+                        </button>
+                    </div>
                 </div>
             </div>
+            <!------------------------##### end search + create new student  ####------------------------------------>
+
+
+
         </div>
 
-        <!--*************------------------------------------------ Tabel--------------------------------------------********* -->
-        <!-----------pagination----------->
+        <!--*************------------------------------------------pagination limit + selectAll + groupDelete--------------------------------------------********* -->
+
         <dvi class="container">
-            <div class="row container">
-                <div class="3">
-                    <input id="pglmt" placeholder="Page Limit" title="Page Limit" value="3" class="form-control">
+            <div class="row">
+                <div class="col">
+                    <div class="btn btn-secondary  selectAll">
+                        <input type="checkbox" id="selectAll" class="ml-1" disabled />
+                        <lable for="selectAll">انتخاب همه</lable>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" id="groupdelete" class="btn btn-danger  ">حذف</button>
+                    </div>
                 </div>
-                <div class="2">
-                    <button id="btnApply" class="btn btn-danger">Apply</button>
+                <!-----------pagination------------------------->
+                <div class="justify-content-end form-inline col">
+                    <div class="form-group">
+                        <button id="btnApply" class="btn btn-secondary form-control pglimit ">اجرا</button>
+                    </div>
+                    <div class="form-group mr-1">
+                        <input id="pglmt" placeholder="تعداد سطرها" title="Page Limit" value="3" class="form-control text-center border-0" size="4">
+                    </div>
                 </div>
+                <!-----------#End pagination------------------->
             </div>
         </dvi>
-        <!-------------------->
+        <!-----------------------------------------------Tabel-------------------------------------------------->
         <div class="table">
             <table id="myTable" class="table table-bordered  table-hover tableMobilize  table-striped">
                 <thead class="bg-info text-light text-center">
