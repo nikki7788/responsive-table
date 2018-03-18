@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 
     //ایدی دانشجویان را برای رخداد های حذف و ویرایش در خود ذخیره میکند
-    var mydata = [];
+  //  var mydata = [];
 
     //تعدادسطرهای جدول در یک صفحه رادرخود ذخیره میکند
     var lmt;
@@ -39,8 +39,6 @@ $(document).ready(function () {
 
         getLocalStorage();
 
-
-        //   var tr = $("#myTable tbody tr");
         if ($(this).val().toLowerCase().trim()) {
             var wordSearch = $(this).val().toLowerCase().trim();
         }
