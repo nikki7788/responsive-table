@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 
     //ایدی دانشجویان را برای رخداد های حذف و ویرایش در خود ذخیره میکند
-    var mydata = [];
+    //var mydata = [];
 
     //تعدادسطرهای جدول در یک صفحه رادرخود ذخیره میکند
     var lmt;
@@ -26,10 +26,37 @@ $(document).ready(function () {
     loadData();
 
     //###############################**********------events-------**********************#######################
+    //search icon 
+    $(".btnSearch").click(function () {
+        $("#mySearch").toggle("left");
+    });
+    //remove placeholder text when focus on the search input
+    $("#mySearch").focus(function () {
+        $(this).removeAttr("placeholder");
+    });
+    //add a placeholder when focus out
+    $("#mySearch").focusout(function () {
+        $(this).attr("placeholder", "جست و جو ...");
+    });
+
     //event for دانشجوی جدید
     $(".bt button").click(function () {
         clearTextBox();
+       
     });
+
+    //var rtlChar = /[\u0590-\u083F]|[\u08A0-\u08FF]|[\uFB1D-\uFDFF]|[\uFE70-\uFEFF]/mg;
+    //$(document).ready(function () {
+    //    $('#mySearch').keyup(function () {
+    //        var isRTL = this.value.match(rtlChar);
+    //        if (isRTL !== null) {
+    //            this.style.direction = 'rtl';
+    //        }
+    //        else {
+    //            this.style.direction = 'ltr';
+    //        }
+    //    });
+    //});
 
     //search
     $("#mySearch").on("keyup", function () {
@@ -45,38 +72,31 @@ $(document).ready(function () {
             var wordSearch = $(this).val().toLowerCase().trim();
         }
 
+        if (wordSearch) {
+            searchHtml = [];
+            for (var i = 0; i < stdTable.length; i++) {
 
-        tr.find(function () {
-
-            if (wordSearch) {
-                searchHtml = [];
-                for (var i = 0; i < stdTable.length; i++) {
-
-                    if (stdTable[i].studentName.toLowerCase().indexOf(wordSearch) > -1) {
-                        searchHtml.push(stdTable[i]);
-                    }
+                if (stdTable[i].studentName.toLowerCase().indexOf(wordSearch) > -1) {
+                    searchHtml.push(stdTable[i]);
                 }
-                if (searchHtml == "") {
-                    searchHtml = "error";
-
-                }
-            } else {
-
-                searchHtml = undefined;
             }
+            if (searchHtml == "") {
+                searchHtml = "error";
 
-            loadData();
-            rePage();
-            //$("#myTable tbody tr").filter(function () {
-            //    $(this).toggle($(this).text().toLowerCase().indexOf(wordSearch) > -1);
+            }
+        } else {
 
-            //});
-        })
+            searchHtml = undefined;
+        }
 
-
+        loadData();
+        rePage();
+        //$("#myTable tbody tr").filter(function () {
+        //    $(this).toggle($(this).text().toLowerCase().indexOf(wordSearch) > -1);
+        //});
     });
 
-
+    //clicking on انتخاب همه  
     $(".selectAll").click(function () {
         debugger;
         //  var j = 0;
@@ -598,7 +618,6 @@ $(document).ready(function () {
         $("#fieldID").val("");
         $("#btnAdd").show();
         $("#btnEdit").hide();
-        $("#studentName").attr("autofocus", "autofocus");
         $("#studentName,#startYear,#fieldID").css("border-color", "lightgrey");
     };
     //پاک کردن متن سرج باکس
