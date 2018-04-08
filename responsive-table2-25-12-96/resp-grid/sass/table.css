@@ -1,20 +1,14 @@
 ﻿@charset "UTF-8";
-
 .hidden {
-    display: none;
-}
+  display: none; }
 
 /*th:nth-of-type(2) a:first-of-type {
     background-color:red;
 }*/
 @font-face {
-    font-family: 'BYas';
-    src: url("../font-web/BYas/BYas.eot");
-    src: local("☺"), url("../font-web/BYas/BYas.woff") format("woff"), url("../font-web/BYas/BYas.ttf") format("truetype");
-}
+  font-family: 'BYas';
+  src: url("../font-web/BYas/BYas.eot");
+  src: local("☺"), url("../font-web/BYas/BYas.woff") format("woff"), url("../font-web/BYas/BYas.ttf") format("truetype"); }
 
 * {
-    font-family: BYas;
-}
-
-
+  font-family: BYas; }
